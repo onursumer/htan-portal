@@ -7,7 +7,7 @@ import {
     isNumericalSchemaData,
     SchemaDataById,
     SchemaDataId,
-} from '../../../data-portal-schema/src/libs/dataSchemaHelpers';
+} from '@htan/data-portal-schema';
 import { Atlas, Entity } from '../../../data-portal-commons/src/libs/entity';
 import ExpandableText from '../../../data-portal-commons/src/components/ExpandableText';
 

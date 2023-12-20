@@ -4,10 +4,7 @@ import React from 'react';
 import { getDefaultDataTableStyle } from '../../../data-portal-table/src/libs/helpers';
 import { Atlas, Entity } from '../../../data-portal-commons/src/libs/entity';
 import { GenericAttributeNames } from '../../../data-portal-utils/src/libs/types';
-import {
-    DataSchemaData,
-    SchemaDataId,
-} from '../../../data-portal-schema/src/libs/dataSchemaHelpers';
+import { DataSchemaData, SchemaDataId } from '@htan/data-portal-schema';
 import EnhancedDataTable from '../../../data-portal-table/src/components/EnhancedDataTable';
 
 import {
@@ -24,9 +21,9 @@ interface IBiospecimenTableProps {
     genericAttributeMap?: { [attr: string]: GenericAttributeNames };
 }
 
-export const BiospecimenTable: React.FunctionComponent<IBiospecimenTableProps> = (
-    props
-) => {
+export const BiospecimenTable: React.FunctionComponent<
+    IBiospecimenTableProps
+> = (props) => {
     const columns = generateColumnsForDataSchema(
         [SchemaDataId.Biospecimen],
         props.schemaDataById,

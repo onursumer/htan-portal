@@ -391,9 +391,9 @@ export function mapSchemaDataToDataSchemaData(
     context: SchemaContext
 ): (nd: SchemaData) => DataSchemaData {
     return function (nd: SchemaData): DataSchemaData {
-        const parentIds: string[] = (normalizeEntity(
-            nd['rdfs:subClassOf']
-        ) as BaseEntity[]).map((rd: BaseEntity): string => rd['@id']);
+        const parentIds: string[] = (
+            normalizeEntity(nd['rdfs:subClassOf']) as BaseEntity[]
+        ).map((rd: BaseEntity): string => rd['@id']);
 
         const pieces: string[] = nd['@id'].split(`:`);
         const source: string = `${context[pieces[0]]}${pieces[1]}`;
@@ -402,21 +402,21 @@ export function mapSchemaDataToDataSchemaData(
             (rd: string): string => rd
         );
 
-        const requiredDependencies: string[] = (normalizeEntity(
-            nd['sms:requiresDependency']
-        ) as BaseEntity[]).map((rd: BaseEntity): string => rd['@id']);
+        const requiredDependencies: string[] = (
+            normalizeEntity(nd['sms:requiresDependency']) as BaseEntity[]
+        ).map((rd: BaseEntity): string => rd['@id']);
 
-        const validValues: string[] = (normalizeEntity(
-            nd['schema:rangeIncludes']
-        ) as BaseEntity[]).map((rd: BaseEntity): string => rd['@id']);
+        const validValues: string[] = (
+            normalizeEntity(nd['schema:rangeIncludes']) as BaseEntity[]
+        ).map((rd: BaseEntity): string => rd['@id']);
 
-        const requiresComponent: string[] = (normalizeEntity(
-            nd['sms:requiresComponent']
-        ) as BaseEntity[]).map((rd: BaseEntity): string => rd['@id']);
+        const requiresComponent: string[] = (
+            normalizeEntity(nd['sms:requiresComponent']) as BaseEntity[]
+        ).map((rd: BaseEntity): string => rd['@id']);
 
-        const domainIncludes: string[] = (normalizeEntity(
-            nd['schema:domainIncludes']
-        ) as BaseEntity[]).map((rd: BaseEntity): string => rd['@id']);
+        const domainIncludes: string[] = (
+            normalizeEntity(nd['schema:domainIncludes']) as BaseEntity[]
+        ).map((rd: BaseEntity): string => rd['@id']);
 
         return {
             id: nd['@id'],
@@ -461,9 +461,8 @@ export function resolveConditionalDependencies(
     schemaData: DataSchemaData[],
     schemaDataKeyedById: SchemaDataById
 ) {
-    const requiredDependenciesReverseLookup = constructRequiredDependenciesReverseLookup(
-        schemaData
-    );
+    const requiredDependenciesReverseLookup =
+        constructRequiredDependenciesReverseLookup(schemaData);
 
     schemaData.forEach((datum) =>
         getDataSchemaParents(datum, schemaDataKeyedById).forEach((parent) => {

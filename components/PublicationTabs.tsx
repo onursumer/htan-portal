@@ -11,7 +11,7 @@ import { groupEntitiesByAttrNameAndValue } from '../packages/data-portal-filter/
 import { GenericAttributeNames } from '../packages/data-portal-utils/src/libs/types';
 import { Atlas, Entity } from '../packages/data-portal-commons/src/libs/entity';
 import { FileAttributeMap } from '../packages/data-portal-commons/src/libs/types';
-import { DataSchemaData } from '../packages/data-portal-schema/src/libs/dataSchemaHelpers';
+import { DataSchemaData } from '@htan/data-portal-schema';
 import BiospecimenTable from '../packages/data-portal-explore/src/components/BiospecimenTable';
 import CaseTable from '../packages/data-portal-explore/src/components/CaseTable';
 import FileTable from '../packages/data-portal-explore/src/components/FileTable';
@@ -253,8 +253,8 @@ const supportingLinks: { [id: string]: JSX.Element[] } = {
     ],
 };
 
-const PublicationTabs: React.FunctionComponent<IPublicationTabsProps> = observer(
-    (props) => {
+const PublicationTabs: React.FunctionComponent<IPublicationTabsProps> =
+    observer((props) => {
         const activeTab = props.router.query.tab || PublicationTab.ABSTRACT;
         const pubId = props.router.query?.id?.toString();
 
@@ -572,7 +572,6 @@ const PublicationTabs: React.FunctionComponent<IPublicationTabsProps> = observer
                 </div>
             </>
         );
-    }
-);
+    });
 
 export default PublicationTabs;

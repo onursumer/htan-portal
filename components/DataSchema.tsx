@@ -7,7 +7,7 @@ import {
     getDataSchemaDependencies,
     getDataSchemaValidValues,
     hasNonEmptyValidValues,
-} from '../packages/data-portal-schema/src/libs/dataSchemaHelpers';
+} from '@htan/data-portal-schema';
 import { getDataSchemaDataTableStyle } from '../lib/dataTableHelpers';
 import ValidValues from './ValidValues';
 
@@ -73,9 +73,9 @@ enum ColumnSelector {
     ValidValues = 'validValues',
 }
 
-function getColumnDef(dataSchemaMap?: {
-    [id: string]: DataSchemaData;
-}): { [name in ColumnName]: IDataTableColumn } {
+function getColumnDef(dataSchemaMap?: { [id: string]: DataSchemaData }): {
+    [name in ColumnName]: IDataTableColumn;
+} {
     return {
         [ColumnName.Attribute]: {
             name: ColumnName.Attribute,

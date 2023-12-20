@@ -50,7 +50,7 @@ import { AttributeNames } from '../packages/data-portal-utils/src/libs/types';
 import FileFilterControls from '../packages/data-portal-explore/src/components/FileFilterControls';
 import { HTANToGenericAttributeMap } from '../packages/data-portal-commons/src/libs/types';
 import { Atlas } from '../packages/data-portal-commons/src/libs/entity';
-import { fetchAndProcessSchemaData } from '../packages/data-portal-schema/src/libs/dataSchemaHelpers';
+import { fetchAndProcessSchemaData } from '@htan/data-portal-schema';
 import { ExploreTab } from '../packages/data-portal-explore/src/libs/types';
 
 export type ExploreURLQuery = {
@@ -216,9 +216,8 @@ class Search extends React.Component<{ router: NextRouter }, IFilterProps> {
 
     @computed
     get selectedAtlases() {
-        const atlasFilters = this.selectedFiltersByAttrName[
-            AttributeNames.AtlasName
-        ];
+        const atlasFilters =
+            this.selectedFiltersByAttrName[AttributeNames.AtlasName];
 
         if (_.size(atlasFilters)) {
             return _.chain(
@@ -244,8 +243,8 @@ class Search extends React.Component<{ router: NextRouter }, IFilterProps> {
 
     @computed
     get filteredAtlasesByNonAtlasFilters() {
-        const filtersExceptAtlasFilters = this
-            .nonAtlasSelectedFiltersByAttrName;
+        const filtersExceptAtlasFilters =
+            this.nonAtlasSelectedFiltersByAttrName;
 
         return _.chain(filterFiles(filtersExceptAtlasFilters, this.state.files))
             .map((f) => f.atlasid)

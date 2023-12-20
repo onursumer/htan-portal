@@ -14,6 +14,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -43,3 +44,6 @@ data/metadata/*
 .idea/*
 *.iml
 .now
+
+#nx
+.nx/cache

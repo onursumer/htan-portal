@@ -23,7 +23,7 @@ import {
     fetchAndProcessSchemaData,
     getAttributeToSchemaIdMap,
     SchemaDataById,
-} from '../packages/data-portal-schema/src/libs/dataSchemaHelpers';
+} from '@htan/data-portal-schema';
 
 // import idcAssets from '../packages/data-portal-explore/src/assets/idc-imaging-assets.json';
 // const idcIds = _.keyBy(idcAssets, 'ContainerIdentifier');
@@ -74,8 +74,9 @@ function getDbgapSynapseIds(entitiesById: {
 function getDbgapImgSynapseIds(entitiesById: {
     [entityId: string]: ReleaseEntity;
 }) {
-    return getReleaseSynapseIds(entitiesById, (e) =>
-        e.CDS_Release?.endsWith('.img')
+    return getReleaseSynapseIds(
+        entitiesById,
+        (e) => e.CDS_Release?.endsWith('.img')
     );
 }
 

@@ -9,10 +9,7 @@ import {
     getAtlasColumn,
     sortByParticipantId,
 } from '../libs/dataTableHelpers';
-import {
-    DataSchemaData,
-    SchemaDataId,
-} from '../../../data-portal-schema/src/libs/dataSchemaHelpers';
+import { DataSchemaData, SchemaDataId } from '@htan/data-portal-schema';
 import { getDefaultDataTableStyle } from '../../../data-portal-table/src/libs/helpers';
 import { convertAgeInDaysToYears } from '../../../data-portal-utils/src/libs/convert';
 

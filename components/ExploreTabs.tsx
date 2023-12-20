@@ -12,7 +12,7 @@ import getAtlasMetaData from '../lib/getAtlasMetaData';
 import { ISelectedFiltersByAttrName } from '../packages/data-portal-filter/src/libs/types';
 import { GenericAttributeNames } from '../packages/data-portal-utils/src/libs/types';
 import { Atlas, Entity } from '../packages/data-portal-commons/src/libs/entity';
-import { DataSchemaData } from '../packages/data-portal-schema/src/libs/dataSchemaHelpers';
+import { DataSchemaData } from '@htan/data-portal-schema';
 import AtlasTable from '../packages/data-portal-explore/src/components/AtlasTable';
 import BiospecimenTable from '../packages/data-portal-explore/src/components/BiospecimenTable';
 import CaseTable from '../packages/data-portal-explore/src/components/CaseTable';

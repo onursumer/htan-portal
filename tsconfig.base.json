@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "target": "es6",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "paths": {
+      "@htan/data-portal-schema": [
+        "packages/data-portal-schema/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "public/processed_syn_data.json",
+    "public/processed_syn_data.json.gz",
+    "data/metadata_v4.csv",
+    "data/entities_v4.csv",
+    "public/syn_data.json",
+    "lib/getData.ts",
+    "data/processSynapseJSON.ts"
+  ]
+}
