@@ -5,6 +5,7 @@ import { HtaCenter, PrincipalInvestigator } from '../types';
 import styles from './HtaCenterPage.module.scss';
 
 export interface HtaCenterPageProps {
+    id: string;
     hta: HtaCenter;
     showGrantNumber?: boolean;
 }
@@ -62,8 +63,13 @@ const PrincipalInvestigators = (props: {
     }
 };
 
-const Overview = (props: { description: string | string[] }) => {
-    const description = [...[props.description]].flat();
+const Overview = (props: { hta: HtaCenter; id: string }) => {
+    const description = [...[props.hta.description]].flat();
+
+    // TODO not every center has an overview image
+    const getImgSrc = (phase: string) => {
+        return `/${phase}/${props.id}_overview.png`;
+    };
 
     return (
         <>
@@ -71,11 +77,18 @@ const Overview = (props: { description: string | string[] }) => {
             {description.map((d, index) => (
                 <p key={index}>{d}</p>
             ))}
+            <div className="text-center">
+                <img
+                    className={styles.overviewImg}
+                    src={getImgSrc(props.hta.phase)}
+                    alt={`${props.id}_overview`}
+                />
+            </div>
         </>
     );
 };
 
-const HtaCenterPage = ({ hta, showGrantNumber }: HtaCenterPageProps) => {
+const HtaCenterPage = ({ id, hta, showGrantNumber }: HtaCenterPageProps) => {
     if (!hta) {
         return <div>Loading...</div>;
     }
@@ -85,7 +98,7 @@ const HtaCenterPage = ({ hta, showGrantNumber }: HtaCenterPageProps) => {
             <Row className={'contentWrapper'}>
                 <div className="col">
                     <h1>{hta.title}</h1>
-                    <Overview description={hta.description} />
+                    <Overview hta={hta} id={id} />
                     {showGrantNumber && hta.grantNumber && (
                         <p>
                             <b>Grant Number</b>: {hta.grantNumber}
